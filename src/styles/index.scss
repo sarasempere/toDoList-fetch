@@ -11,3 +11,36 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.inputBox{
+    width: 30rem;
+    height: 7rem;
+    border-radius: 5%;
+    border: 1px solid lightgreen;
+    background-color: lightyellow;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    text-align:center;
+}
+
+p{
+    color:darkgreen
+}
+
+.deleteBtn{
+
+    background-color: rgb(190, 162, 162);
+}
+
+.title{
+     font-size: 600%;
+     opacity: 0.5;
+     color: grey;
+     
+}
