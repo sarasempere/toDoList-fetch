@@ -51,7 +51,7 @@ export const Todo = () => {
 
 	const deleteItem = item => {
 		let deleteList = todos.filter((x, index) => {
-			return x.label !== item.label;
+			return x.label !== todos.indexOf(item);
 		});
 
 		console.log(deleteList, "delete");
