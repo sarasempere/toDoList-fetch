@@ -47,20 +47,27 @@ export const Todo = () => {
 			.then(() => upLoad())
 			.catch(error => console.error("Error:", error));
 		setInputValue("");
-		console.log(newTask, "todos");
 	};
 
 	const deleteItem = item => {
-		console.log(item, "item a borrar");
-		let deleteList = [];
-		todos.map(function(x) {
-			if (x != item) {
-				deleteList.push(x);
-			}
+		let deleteList = todos.filter((x, index) => {
+			return x.label !== item.label;
 		});
 
-		setTodos(deleteList);
-		console.log(todos, "lista todos después de borrar");
+		console.log(deleteList, "delete");
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/otra", {
+			method: "PUT",
+			body: JSON.stringify(deleteList),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				upLoad();
+			})
+			.catch(error => console.error("Error:", error));
 	};
 	const listItems = todos.map((w, index) => (
 		<div key={index} className="row">
